@@ -14,21 +14,21 @@ import com.cesi.projet4grp.User;
 import com.cesi.projet4grp.UserRepository;
 
 @RestController
-public class UserController {
+public class FamilyController {
 	
 	  @Autowired
-	  private UserService userService;
+	  private FamilyService familyService;
 
   
-	@GetMapping("/users")
-    public Iterable<User> getUsers() {
-        return userService.getUsers();
+	@GetMapping("/familys")
+    public Iterable<Family> getFamilys() {
+        return familyService.getFamilys();
     }
 	
-	@RequestMapping(path="/user/{user_id}", method = RequestMethod.GET)
-    Optional<User> getKey(@PathVariable Long user_id) {
+	@RequestMapping(path="/family/{family_id}", method = RequestMethod.GET)
+    Optional<Family> getKey(@PathVariable Long family_id) {
 
 
-    return userService.getUser(user_id);
+    return familyService.getFamily(family_id);
 	}
 }
