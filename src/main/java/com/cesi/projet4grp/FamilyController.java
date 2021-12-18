@@ -31,4 +31,11 @@ public class FamilyController {
 
     return familyService.getFamily(family_id);
 	}
+	
+	@DeleteMapping(value = "/family/{id}")
+    public void deleteUser(@PathVariable Long id) {
+
+		familyService.deleteFamily(id);
+
+    }
 }
