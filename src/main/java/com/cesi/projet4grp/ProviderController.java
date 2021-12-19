@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,8 +32,7 @@ public class ProviderController {
 	@RequestMapping(path="/provider/{provider_id}", method = RequestMethod.GET)
     Optional<Provider> getKey(@PathVariable Long provider_id) {
 
-
-    return providerService.getProvider(provider_id);
+		return providerService.getProvider(provider_id);
 	}
 	
 	@DeleteMapping(value = "/provider/{id}")
@@ -40,4 +41,10 @@ public class ProviderController {
 		providerService.deleteProvider(id);
 
     }
+	
+	 @PostMapping("/providers")
+	 Provider newEmployee(@RequestBody Provider newProvider) {
+	    return providerService.saveProvider(newProvider);
+	  }
+	  
 }
